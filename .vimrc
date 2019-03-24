@@ -1,7 +1,8 @@
 inoremap ..		->
 inoremap ...		...
-iabbrev if 		if<space>()<enter>{<tab><enter>}<delete>
+iabbrev if 		if ()<cr>{<cr>}<Esc>2kf(a
 "<c-u>normal! F)vi(<cr>
+iabbrev while 		while ()<cr>{<cr>}<Esc>2kf(a
 iabbrev {}  		<enter>{<tab><enter>\<enter>}
 "autocmd BufNewFile *.zz	ifndef<space>_H<enter>\<space>define<space>_H 
 "autocmd BufNewFile *.h	execute normal! ipouet bufname("#")\<cr>' 
