@@ -18,10 +18,13 @@ function! s:insert_class()
   let gatename = substitute(expand("%:r"), "\\.class", "", "g")
   execute "normal! iClass " . gatename
   execute "normal! o{"
-  execute "normal! o\tpublic :"
-  execute "normal! o\t\t" . gatename . "(void);"
-  execute "normal! o\t\t~" . gatename . "(void);"
-  execute "normal! o\tprivate :"
+  execute "normal! opublic :"
+  execute "normal! o\t" . gatename . "(void);"
+  execute "normal! o\t" . gatename . "(" . gatename . " const & src);"
+  execute "normal! o\t~" . gatename . "(void);"
+  execute "normal! o"
+  execute "normal! o\t" . gatename . " &\toperator=(" . gatename . " const & rhs);"
+  execute "normal! oprivate :"
   execute "normal! o};"
 endfunction
 
