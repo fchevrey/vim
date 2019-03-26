@@ -1,9 +1,15 @@
 inoremap ..		->
 inoremap ...		...
-iabbrev if 		if ()<cr>{<cr>}<Esc>2kf(a
+iabbrev cout		std::cout<space><<<space><<<space>std::endl;
+iabbrev cin			std::cin<space>>><space>;
+iabbrev getl		std::getline(std::cin,<space>);<enter>if<>space(std::cin.eof())<enter>return<space>;
+iabbrev #i			#include
+iabbrev #o			#include<space><iostream><enter>
+iabbrev #s			#include<space><string><enter>
+"iabbrev if 		if ()<cr>{<cr>}<Esc>2kf(a
 "<c-u>normal! F)vi(<cr>
-iabbrev while 		while ()<cr>{<cr>}<Esc>2kf(a
-iabbrev {}  		<enter>{<tab><enter>\<enter>}
+"iabbrev while 		while ()<cr>{<cr>}<Esc>2kf(a
+"iabbrev {}  		<enter>{<tab><enter>\<enter>}
 "autocmd BufNewFile *.zz	ifndef<space>_H<enter>\<space>define<space>_H 
 "autocmd BufNewFile *.h	execute normal! ipouet bufname("#")\<cr>' 
 "autocommands
@@ -16,7 +22,7 @@ function! s:insert_gates()
 endfunction
 function! s:insert_class()
   let gatename = substitute(expand("%:r"), "\\.class", "", "g")
-  execute "normal! iClass " . gatename
+  execute "normal! iclass " . gatename
   execute "normal! o{"
   execute "normal! opublic :"
   execute "normal! o\t" . gatename . "(void);"
