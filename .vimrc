@@ -26,11 +26,14 @@ function! s:insert_class()
   execute "normal! o{"
   execute "normal! opublic :"
   execute "normal! o\t" . gatename . "(void);"
-  execute "normal! o\t" . gatename . "(" . gatename . " const & src);"
-  execute "normal! o\tvirtual\t~" . gatename . "(void);"
+  execute "normal! o\t" . gatename . "(const " . gatename . " & src);"
+  execute "normal! o\tvirtual\t\t~" . gatename . "(void);"
   execute "normal! o"
-  execute "normal! o\t" . gatename . " &\toperator=(" . gatename . " const & rhs);"
+  execute "normal! o\t" . gatename . " &\toperator=(const " . gatename . " & rhs);"
+  execute "normal! oprotected :"
+  execute "normal! o"
   execute "normal! oprivate :"
+  execute "normal! o"
   execute "normal! o};"
 endfunction
 
