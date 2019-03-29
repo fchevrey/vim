@@ -27,7 +27,7 @@ function! s:insert_class()
   execute "normal! opublic :"
   execute "normal! o\t" . gatename . "(void);"
   execute "normal! o\t" . gatename . "(" . gatename . " const & src);"
-  execute "normal! o\t~" . gatename . "(void);"
+  execute "normal! o\tvirtual\t~" . gatename . "(void);"
   execute "normal! o"
   execute "normal! o\t" . gatename . " &\toperator=(" . gatename . " const & rhs);"
   execute "normal! oprivate :"
@@ -38,5 +38,5 @@ augroup CFile
 	autocmd!
 	autocmd BufNewFile *.h call <SID>insert_gates()
 	autocmd BufNewFile *.hpp call <SID>insert_gates()
-	autocmd BufNewFile *.class.hpp call <SID>insert_class()
+	autocmd BufNewFile *.hpp call <SID>insert_class()
 augroup END
